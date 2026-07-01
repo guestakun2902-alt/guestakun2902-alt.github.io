@@ -1,0 +1,1128 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media PAI - 4 Kitab Allah | SD IT Cendikia</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              cream: "#FFF8ED",
+              ink: "#3A2E22",
+              taurat: { DEFAULT: "#3A6EA5", light: "#DCE8F6", dark: "#2A5480" },
+              zabur: { DEFAULT: "#FFC145", light: "#FFF3D6", dark: "#E5A400" },
+              injil: { DEFAULT: "#06A77D", light: "#DAF5EC", dark: "#04815F" },
+              quran: { DEFAULT: "#1F8A55", light: "#DFF3E6", dark: "#166B41" },
+            },
+            fontFamily: {
+              display: ["Fredoka", "sans-serif"],
+              body: ["Nunito", "sans-serif"],
+            },
+            boxShadow: {
+              pop: "0 6px 0 rgba(0,0,0,0.12)",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      body {
+        font-family: "Nunito", sans-serif;
+        background-color: #fff8ed;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      .font-display {
+        font-family: "Fredoka", sans-serif;
+      }
+
+      .pillar-card {
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      .pillar-card:hover {
+        transform: translateY(-4px);
+      }
+
+      .detail-panel {
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.45s ease,
+          opacity 0.35s ease,
+          margin 0.35s ease;
+        opacity: 0;
+      }
+      .detail-panel.open {
+        max-height: 800px;
+        opacity: 1;
+      }
+
+      .rotate-chevron {
+        transition: transform 0.3s ease;
+      }
+      .rotate-chevron.open {
+        transform: rotate(180deg);
+      }
+
+      @keyframes pop-in {
+        0% {
+          opacity: 0;
+          transform: scale(0.9) translateY(10px);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+      .anim-pop {
+        animation: pop-in 0.35s ease;
+      }
+
+      @keyframes shake-x {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        20% {
+          transform: translateX(-8px);
+        }
+        40% {
+          transform: translateX(8px);
+        }
+        60% {
+          transform: translateX(-6px);
+        }
+        80% {
+          transform: translateX(6px);
+        }
+      }
+      .anim-shake {
+        animation: shake-x 0.45s ease;
+      }
+
+      @keyframes bounce-correct {
+        0% {
+          transform: scale(1);
+        }
+        40% {
+          transform: scale(1.06);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      .anim-correct {
+        animation: bounce-correct 0.4s ease;
+      }
+
+      @keyframes confetti-fall {
+        0% {
+          transform: translateY(-20px) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(140px) rotate(360deg);
+          opacity: 0;
+        }
+      }
+      .confetti-piece {
+        position: absolute;
+        top: 0;
+        animation: confetti-fall 1s ease-out forwards;
+      }
+
+      @keyframes float-cloud {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-6px);
+        }
+      }
+      .float-anim {
+        animation: float-cloud 4s ease-in-out infinite;
+      }
+
+      .tab-btn.active {
+        background: #3a2e22;
+        color: #fff8ed;
+        box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25);
+      }
+
+      .progress-fill {
+        transition: width 0.4s ease;
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #ffc145;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+
+  <body class="text-ink antialiased">
+    <!-- ============ HEADER ============ -->
+    <header
+      class="sticky top-0 z-40 bg-cream/95 backdrop-blur border-b-4 border-ink/5 shadow-sm"
+    >
+      <div
+        class="max-w-5xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-3"
+      >
+        <div class="flex items-center gap-3 min-w-0">
+          <img
+            src="LogoSekolah.png"
+            alt="Logo SD IT Cendikia"
+            onerror="
+              this.onerror = null;
+              this.replaceWith(
+                Object.assign(document.createElement('div'), {
+                  className:
+                    'w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-quran flex items-center justify-center text-cream font-display font-bold text-lg shrink-0',
+                  innerText: 'SC',
+                }),
+              );
+            "
+            class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl object-cover shrink-0 ring-2 ring-white shadow"
+          />
+          <div class="min-w-0">
+            <p
+              class="font-display font-semibold text-sm sm:text-lg leading-tight truncate"
+            >
+              Media PAI
+            </p>
+            <p
+              class="text-[11px] sm:text-xs text-ink/60 font-semibold truncate"
+            >
+              SD IT Cendikia — Pendidikan Agama Islam
+            </p>
+          </div>
+        </div>
+
+        <nav class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          <button
+            id="navBelajar"
+            onclick="showSection('belajar')"
+            class="tab-btn active font-display text-[11px] sm:text-sm font-semibold px-2.5 sm:px-4 py-2 rounded-full bg-white text-ink transition-all"
+          >
+            📚 <span class="hidden xs:inline sm:inline">Ruang</span> Belajar
+          </button>
+          <button
+            id="navKuis"
+            onclick="showSection('kuis')"
+            class="tab-btn font-display text-[11px] sm:text-sm font-semibold px-2.5 sm:px-4 py-2 rounded-full bg-white text-ink transition-all"
+          >
+            🎮 Tantangan Kuis
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-10">
+      <!-- ============ SECTION: RUANG BELAJAR ============ -->
+      <section id="section-belajar">
+        <!-- Hero -->
+        <div class="text-center mb-8 sm:mb-10">
+          <span
+            class="inline-block bg-zabur-light text-zabur-dark font-display font-semibold text-xs sm:text-sm px-4 py-1.5 rounded-full mb-3"
+            >✨ Perpustakaan Langit</span
+          >
+          <h1
+            class="font-display font-semibold text-2xl sm:text-4xl leading-tight mb-3"
+          >
+            4 Kitab Allah yang Diturunkan kepada Rasul
+          </h1>
+          <p
+            class="text-ink/70 max-w-xl mx-auto text-sm sm:text-base font-semibold"
+          >
+            Allah SWT menurunkan kitab-kitab suci kepada para rasul-Nya sebagai
+            petunjuk hidup bagi umat manusia. Iman kepada kitab-kitab Allah
+            adalah salah satu Rukun Iman. Yuk, kenali 4 kitab suci yang wajib
+            kita imani! Sentuh kartunya untuk membuka ceritanya 👇
+          </p>
+        </div>
+
+        <!-- Signature Illustration: 4 Kitab turun dari langit -->
+        <div class="mb-10 sm:mb-14 rounded-3xl bg-white shadow-pop p-4 sm:p-6">
+          <svg
+            viewBox="0 0 700 260"
+            class="w-full h-auto"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <!-- langit -->
+            <rect
+              x="0"
+              y="0"
+              width="700"
+              height="150"
+              rx="0"
+              fill="#DCE8F6"
+              opacity="0.35"
+            />
+            <!-- awan -->
+            <g opacity="0.5" fill="#3A2E22">
+              <ellipse cx="90" cy="40" rx="34" ry="14" />
+              <ellipse cx="250" cy="30" rx="30" ry="12" />
+              <ellipse cx="450" cy="34" rx="30" ry="12" />
+              <ellipse cx="610" cy="42" rx="34" ry="14" />
+            </g>
+            <!-- rak / meja -->
+            <rect
+              x="20"
+              y="222"
+              width="660"
+              height="16"
+              rx="8"
+              fill="#3A2E22"
+              opacity="0.1"
+            />
+
+            <!-- Kitab 1: Taurat -->
+            <g
+              class="kitab-item"
+              data-target="card-taurat"
+              style="cursor: pointer"
+            >
+              <line
+                x1="165"
+                y1="55"
+                x2="165"
+                y2="118"
+                stroke="#3A6EA5"
+                stroke-width="3"
+                stroke-dasharray="3 4"
+                opacity="0.5"
+              />
+              <rect
+                x="130"
+                y="118"
+                width="70"
+                height="100"
+                rx="10"
+                fill="#3A6EA5"
+              />
+              <rect
+                x="130"
+                y="118"
+                width="70"
+                height="14"
+                rx="7"
+                fill="#2A5480"
+              />
+              <text
+                x="165"
+                y="178"
+                text-anchor="middle"
+                font-size="28"
+                font-family="Fredoka"
+              >
+                📜
+              </text>
+            </g>
+
+            <!-- Kitab 2: Zabur -->
+            <g
+              class="kitab-item"
+              data-target="card-zabur"
+              style="cursor: pointer"
+            >
+              <line
+                x1="290"
+                y1="45"
+                x2="290"
+                y2="118"
+                stroke="#FFC145"
+                stroke-width="3"
+                stroke-dasharray="3 4"
+                opacity="0.5"
+              />
+              <rect
+                x="255"
+                y="118"
+                width="70"
+                height="100"
+                rx="10"
+                fill="#FFC145"
+              />
+              <rect
+                x="255"
+                y="118"
+                width="70"
+                height="14"
+                rx="7"
+                fill="#E5A400"
+              />
+              <text
+                x="290"
+                y="178"
+                text-anchor="middle"
+                font-size="28"
+                font-family="Fredoka"
+              >
+                🎶
+              </text>
+            </g>
+
+            <!-- Kitab 3: Injil -->
+            <g
+              class="kitab-item"
+              data-target="card-injil"
+              style="cursor: pointer"
+            >
+              <line
+                x1="415"
+                y1="48"
+                x2="415"
+                y2="118"
+                stroke="#06A77D"
+                stroke-width="3"
+                stroke-dasharray="3 4"
+                opacity="0.5"
+              />
+              <rect
+                x="380"
+                y="118"
+                width="70"
+                height="100"
+                rx="10"
+                fill="#06A77D"
+              />
+              <rect
+                x="380"
+                y="118"
+                width="70"
+                height="14"
+                rx="7"
+                fill="#04815F"
+              />
+              <text
+                x="415"
+                y="178"
+                text-anchor="middle"
+                font-size="28"
+                font-family="Fredoka"
+              >
+                📖
+              </text>
+            </g>
+
+            <!-- Kitab 4: Al-Qur'an (istimewa, sedikit lebih tinggi) -->
+            <g
+              class="kitab-item"
+              data-target="card-quran"
+              style="cursor: pointer"
+            >
+              <line
+                x1="540"
+                y1="40"
+                x2="540"
+                y2="106"
+                stroke="#1F8A55"
+                stroke-width="3"
+                stroke-dasharray="3 4"
+                opacity="0.6"
+              />
+              <rect
+                x="503"
+                y="106"
+                width="74"
+                height="112"
+                rx="10"
+                fill="#1F8A55"
+              />
+              <rect
+                x="503"
+                y="106"
+                width="74"
+                height="14"
+                rx="7"
+                fill="#166B41"
+              />
+              <text
+                x="540"
+                y="170"
+                text-anchor="middle"
+                font-size="30"
+                font-family="Fredoka"
+              >
+                ☪️
+              </text>
+            </g>
+          </svg>
+          <p
+            class="text-center text-[11px] sm:text-xs text-ink/50 font-semibold mt-1"
+          >
+            Ketuk salah satu kitab untuk langsung membuka kartu materinya!
+          </p>
+        </div>
+
+        <!-- Cards Grid -->
+        <div class="grid sm:grid-cols-2 gap-4 sm:gap-5" id="cardsGrid">
+          <!-- CARD 1: TAURAT -->
+          <div
+            id="card-taurat"
+            class="pillar-card bg-white rounded-3xl shadow-pop border-b-4 border-taurat overflow-hidden"
+          >
+            <button
+              onclick="toggleCard('taurat')"
+              class="w-full text-left p-4 sm:p-5 flex items-center gap-4"
+            >
+              <div
+                class="w-14 h-14 rounded-2xl bg-taurat-light flex items-center justify-center text-3xl shrink-0"
+              >
+                📜
+              </div>
+              <div class="flex-1 min-w-0">
+                <p
+                  class="text-[11px] font-display font-semibold text-taurat-dark uppercase tracking-wide"
+                >
+                  Kitab 1
+                </p>
+                <h3 class="font-display font-semibold text-lg leading-tight">
+                  Kitab Taurat
+                </h3>
+                <p class="text-xs text-ink/60 font-semibold">
+                  Diturunkan kepada Nabi Musa AS
+                </p>
+              </div>
+              <svg
+                id="chev-taurat"
+                class="rotate-chevron w-5 h-5 text-taurat shrink-0"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="3"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div id="panel-taurat" class="detail-panel px-4 sm:px-5">
+              <div class="pb-5 border-t border-ink/10 pt-4">
+                <p class="text-sm font-bold mb-2">📌 Fakta Penting</p>
+                <p class="text-sm text-ink/80 mb-3">
+                  Kitab Taurat diturunkan oleh Allah SWT kepada Nabi Musa AS
+                  untuk membimbing Bani Israil. Di dalamnya terdapat ajaran
+                  tauhid dan hukum-hukum penting yang dikenal sebagai Sepuluh
+                  Firman (Sepuluh Perintah Allah).
+                </p>
+                <div class="bg-taurat-light rounded-2xl p-3 sm:p-4">
+                  <p class="text-sm font-bold text-taurat-dark mb-1">
+                    🌟 Contoh sederhana untukmu
+                  </p>
+                  <p class="text-sm text-ink/80">
+                    Sama seperti buku peraturan sekolah yang membantu murid tahu
+                    mana yang boleh dan tidak boleh dilakukan, Taurat berisi
+                    aturan hidup dari Allah agar umat Nabi Musa AS berjalan di
+                    jalan yang benar.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 2: ZABUR -->
+          <div
+            id="card-zabur"
+            class="pillar-card bg-white rounded-3xl shadow-pop border-b-4 border-zabur overflow-hidden"
+          >
+            <button
+              onclick="toggleCard('zabur')"
+              class="w-full text-left p-4 sm:p-5 flex items-center gap-4"
+            >
+              <div
+                class="w-14 h-14 rounded-2xl bg-zabur-light flex items-center justify-center text-3xl shrink-0"
+              >
+                🎶
+              </div>
+              <div class="flex-1 min-w-0">
+                <p
+                  class="text-[11px] font-display font-semibold text-zabur-dark uppercase tracking-wide"
+                >
+                  Kitab 2
+                </p>
+                <h3 class="font-display font-semibold text-lg leading-tight">
+                  Kitab Zabur
+                </h3>
+                <p class="text-xs text-ink/60 font-semibold">
+                  Diturunkan kepada Nabi Dawud AS
+                </p>
+              </div>
+              <svg
+                id="chev-zabur"
+                class="rotate-chevron w-5 h-5 text-zabur-dark shrink-0"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="3"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div id="panel-zabur" class="detail-panel px-4 sm:px-5">
+              <div class="pb-5 border-t border-ink/10 pt-4">
+                <p class="text-sm font-bold mb-2">📌 Fakta Penting</p>
+                <p class="text-sm text-ink/80 mb-3">
+                  Kitab Zabur diturunkan oleh Allah SWT kepada Nabi Dawud AS.
+                  Isinya lebih banyak berupa dzikir, nasihat, dan pujian untuk
+                  mengagungkan kebesaran Allah SWT, bukan berisi hukum syariat.
+                </p>
+                <div class="bg-zabur-light rounded-2xl p-3 sm:p-4">
+                  <p class="text-sm font-bold text-zabur-dark mb-1">
+                    🌟 Contoh sederhana untukmu
+                  </p>
+                  <p class="text-sm text-ink/80">
+                    Nabi Dawud AS dikenal memiliki suara yang sangat merdu.
+                    Zabur berisi banyak untaian pujian indah kepada Allah,
+                    seperti kumpulan doa dan syukur yang dilantunkan dengan
+                    penuh kekaguman.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 3: INJIL -->
+          <div
+            id="card-injil"
+            class="pillar-card bg-white rounded-3xl shadow-pop border-b-4 border-injil overflow-hidden"
+          >
+            <button
+              onclick="toggleCard('injil')"
+              class="w-full text-left p-4 sm:p-5 flex items-center gap-4"
+            >
+              <div
+                class="w-14 h-14 rounded-2xl bg-injil-light flex items-center justify-center text-3xl shrink-0"
+              >
+                📖
+              </div>
+              <div class="flex-1 min-w-0">
+                <p
+                  class="text-[11px] font-display font-semibold text-injil-dark uppercase tracking-wide"
+                >
+                  Kitab 3
+                </p>
+                <h3 class="font-display font-semibold text-lg leading-tight">
+                  Kitab Injil
+                </h3>
+                <p class="text-xs text-ink/60 font-semibold">
+                  Diturunkan kepada Nabi Isa AS
+                </p>
+              </div>
+              <svg
+                id="chev-injil"
+                class="rotate-chevron w-5 h-5 text-injil shrink-0"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="3"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div id="panel-injil" class="detail-panel px-4 sm:px-5">
+              <div class="pb-5 border-t border-ink/10 pt-4">
+                <p class="text-sm font-bold mb-2">📌 Fakta Penting</p>
+                <p class="text-sm text-ink/80 mb-3">
+                  Kitab Injil diturunkan oleh Allah SWT kepada Nabi Isa AS.
+                  Kitab ini mengajak umatnya untuk mengesakan Allah SWT dan
+                  menjadi penyempurna sebagian ajaran dalam kitab Taurat.
+                </p>
+                <div class="bg-injil-light rounded-2xl p-3 sm:p-4">
+                  <p class="text-sm font-bold text-injil-dark mb-1">
+                    🌟 Contoh sederhana untukmu
+                  </p>
+                  <p class="text-sm text-ink/80">
+                    Seperti kakak kelas yang meluruskan aturan lama agar lebih
+                    sesuai zaman, Injil datang untuk meneruskan dan
+                    menyempurnakan sebagian ajaran yang sudah ada sebelumnya,
+                    dengan pesan utama tetap mengesakan Allah SWT.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 4: AL-QUR'AN -->
+          <div
+            id="card-quran"
+            class="pillar-card bg-white rounded-3xl shadow-pop border-b-4 border-quran overflow-hidden ring-2 ring-quran/20"
+          >
+            <button
+              onclick="toggleCard('quran')"
+              class="w-full text-left p-4 sm:p-5 flex items-center gap-4"
+            >
+              <div
+                class="w-14 h-14 rounded-2xl bg-quran-light flex items-center justify-center text-3xl shrink-0"
+              >
+                ☪️
+              </div>
+              <div class="flex-1 min-w-0">
+                <p
+                  class="text-[11px] font-display font-semibold text-quran-dark uppercase tracking-wide"
+                >
+                  Kitab 4 · Istimewa
+                </p>
+                <h3 class="font-display font-semibold text-lg leading-tight">
+                  Kitab Al-Qur'an
+                </h3>
+                <p class="text-xs text-ink/60 font-semibold">
+                  Diturunkan kepada Nabi Muhammad SAW
+                </p>
+              </div>
+              <svg
+                id="chev-quran"
+                class="rotate-chevron w-5 h-5 text-quran shrink-0"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="3"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+            <div id="panel-quran" class="detail-panel px-4 sm:px-5">
+              <div class="pb-5 border-t border-ink/10 pt-4">
+                <p class="text-sm font-bold mb-2">📌 Fakta Penting</p>
+                <p class="text-sm text-ink/80 mb-3">
+                  Al-Qur'an diturunkan oleh Allah SWT kepada Nabi Muhammad SAW
+                  melalui perantara Malaikat Jibril secara berangsur-angsur
+                  selama 22 tahun lebih. Al-Qur'an adalah kitab suci terakhir
+                  yang menyempurnakan seluruh kitab sebelumnya dan berlaku
+                  sepanjang zaman hingga akhir dunia.
+                </p>
+                <div class="bg-quran-light rounded-2xl p-3 sm:p-4">
+                  <p class="text-sm font-bold text-quran-dark mb-1">
+                    🌟 Contoh sederhana untukmu
+                  </p>
+                  <p class="text-sm text-ink/80">
+                    Al-Qur'an ibarat buku panduan lengkap terbaru yang berlaku
+                    untuk semua orang, kapan pun dan di mana pun. Berbeda dengan
+                    kitab-kitab sebelumnya, Al-Qur'an dijaga keasliannya oleh
+                    Allah SWT sampai hari kiamat.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-8 sm:mt-10">
+          <button
+            onclick="showSection('kuis')"
+            class="font-display font-semibold text-cream bg-ink hover:bg-ink/90 px-6 sm:px-8 py-3 rounded-full shadow-pop transition-all active:translate-y-1 active:shadow-none"
+          >
+            Sudah paham? Uji dirimu di Kuis! 🚀
+          </button>
+        </div>
+      </section>
+
+      <!-- ============ SECTION: TANTANGAN KUIS ============ -->
+      <section id="section-kuis" class="hidden">
+        <!-- Quiz Intro -->
+        <div id="quizIntro" class="text-center py-6 sm:py-10">
+          <div class="text-6xl mb-4">🏆</div>
+          <h2 class="font-display font-semibold text-2xl sm:text-3xl mb-2">
+            Tantangan Kuis 4 Kitab Allah
+          </h2>
+          <p
+            class="text-ink/70 font-semibold text-sm sm:text-base max-w-md mx-auto mb-6"
+          >
+            Ada 5 soal seru menantimu. Jawab dengan teliti dan kumpulkan skor
+            sebanyak-banyaknya!
+          </p>
+          <button
+            onclick="startQuiz()"
+            class="font-display font-semibold text-cream bg-injil hover:bg-injil-dark px-8 py-3 rounded-full shadow-pop transition-all active:translate-y-1 active:shadow-none"
+          >
+            Mulai Kuis ▶
+          </button>
+        </div>
+
+        <!-- Quiz Play Area -->
+        <div id="quizPlay" class="hidden max-w-xl mx-auto">
+          <!-- Score & Progress bar -->
+          <div class="flex items-center justify-between mb-3">
+            <span
+              id="qProgressLabel"
+              class="font-display font-semibold text-sm text-ink/70"
+              >Soal 1 / 5</span
+            >
+            <span
+              class="font-display font-semibold text-sm bg-zabur-light text-zabur-dark px-3 py-1 rounded-full"
+              >⭐ Skor: <span id="scoreLabel">0</span></span
+            >
+          </div>
+          <div
+            class="w-full h-3 bg-white rounded-full overflow-hidden shadow-inner mb-6"
+          >
+            <div
+              id="progressBar"
+              class="progress-fill h-full bg-injil rounded-full"
+              style="width: 20%"
+            ></div>
+          </div>
+
+          <!-- Question Card -->
+          <div
+            id="questionCard"
+            class="anim-pop bg-white rounded-3xl shadow-pop p-5 sm:p-7"
+          >
+            <p
+              id="questionText"
+              class="font-display font-semibold text-lg sm:text-xl mb-5 leading-snug"
+            ></p>
+            <div id="optionsWrap" class="space-y-3"></div>
+            <p
+              id="feedbackText"
+              class="hidden mt-4 text-sm font-bold rounded-xl px-4 py-3"
+            ></p>
+          </div>
+
+          <div class="text-center mt-5">
+            <button
+              id="nextBtn"
+              onclick="nextQuestion()"
+              class="hidden font-display font-semibold text-cream bg-ink px-7 py-2.5 rounded-full shadow-pop transition-all active:translate-y-1 active:shadow-none"
+            >
+              Lanjut ➜
+            </button>
+          </div>
+        </div>
+
+        <!-- Quiz Result -->
+        <div
+          id="quizResult"
+          class="hidden text-center py-6 sm:py-10 max-w-md mx-auto"
+        >
+          <div id="resultEmoji" class="text-7xl mb-3">🎉</div>
+          <h2 class="font-display font-semibold text-2xl sm:text-3xl mb-1">
+            Kuis Selesai!
+          </h2>
+          <p id="resultMessage" class="text-ink/70 font-semibold mb-4"></p>
+          <div class="bg-white rounded-3xl shadow-pop p-6 mb-6">
+            <p class="text-sm text-ink/60 font-bold uppercase tracking-wide">
+              Skor Akhirmu
+            </p>
+            <p class="font-display font-semibold text-5xl my-1">
+              <span id="finalScore">0</span
+              ><span class="text-2xl text-ink/40">/5</span>
+            </p>
+            <div
+              id="starRow"
+              class="flex justify-center gap-1 text-2xl mt-2"
+            ></div>
+          </div>
+          <button
+            onclick="resetQuiz()"
+            class="font-display font-semibold text-cream bg-taurat hover:bg-taurat-dark px-8 py-3 rounded-full shadow-pop transition-all active:translate-y-1 active:shadow-none"
+          >
+            🔄 Main Lagi
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="mt-8 border-t-4 border-ink/5 bg-white/60">
+      <div
+        class="max-w-5xl mx-auto px-4 sm:px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left"
+      >
+        <div class="flex items-center gap-3">
+          <img
+            src="Foto.jpeg"
+            alt="Foto Ustadz Fawwaz"
+            onerror="
+              this.onerror = null;
+              this.replaceWith(
+                Object.assign(document.createElement('div'), {
+                  className:
+                    'w-11 h-11 rounded-full bg-taurat flex items-center justify-center text-cream font-display font-bold shrink-0',
+                  innerText: 'UF',
+                }),
+              );
+            "
+            class="w-11 h-11 rounded-full object-cover ring-2 ring-white shadow shrink-0"
+          />
+          <div>
+            <p class="text-xs text-ink/50 font-semibold">Dikembangkan oleh:</p>
+            <p class="font-display font-semibold text-sm">Ustadz Fawwaz</p>
+          </div>
+        </div>
+        <p class="text-xs text-ink/50 font-semibold">
+          © Media PAI — SD IT Cendikia · Materi 4 Kitab Allah yang Diturunkan
+          kepada Rasul
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      /* ============ NAVIGASI SPA ============ */
+      function showSection(name) {
+        const belajar = document.getElementById("section-belajar");
+        const kuis = document.getElementById("section-kuis");
+        const navBelajar = document.getElementById("navBelajar");
+        const navKuis = document.getElementById("navKuis");
+
+        if (name === "belajar") {
+          belajar.classList.remove("hidden");
+          kuis.classList.add("hidden");
+          navBelajar.classList.add("active");
+          navKuis.classList.remove("active");
+        } else {
+          kuis.classList.remove("hidden");
+          belajar.classList.add("hidden");
+          navKuis.classList.add("active");
+          navBelajar.classList.remove("active");
+        }
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      /* ============ ACCORDION KARTU MATERI ============ */
+      function toggleCard(id) {
+        const panel = document.getElementById("panel-" + id);
+        const chevron = document.getElementById("chev-" + id);
+        const isOpen = panel.classList.contains("open");
+
+        // tutup semua panel lain
+        document
+          .querySelectorAll(".detail-panel")
+          .forEach((p) => p.classList.remove("open"));
+        document
+          .querySelectorAll(".rotate-chevron")
+          .forEach((c) => c.classList.remove("open"));
+
+        if (!isOpen) {
+          panel.classList.add("open");
+          chevron.classList.add("open");
+        }
+      }
+
+      // klik kitab pada ilustrasi -> buka kartu terkait
+      document.querySelectorAll(".kitab-item").forEach((item) => {
+        item.addEventListener("click", () => {
+          const targetId = item.getAttribute("data-target");
+          const cardKey = targetId.replace("card-", "");
+          document
+            .getElementById(targetId)
+            .scrollIntoView({ behavior: "smooth", block: "center" });
+          setTimeout(() => toggleCard(cardKey), 300);
+        });
+      });
+
+      /* ============ DATA KUIS ============ */
+      const quizData = [
+        {
+          q: "Kitab yang diturunkan Allah SWT kepada Nabi Musa AS bernama...",
+          options: ["Zabur", "Taurat", "Injil", "Al-Qur'an"],
+          correct: 1,
+          explain: "Betul! Kitab Taurat diturunkan kepada Nabi Musa AS.",
+        },
+        {
+          q: "Nabi Dawud AS menerima kitab suci yang berisi banyak pujian dan dzikir kepada Allah, yaitu kitab...",
+          options: ["Zabur", "Taurat", "Injil", "Al-Qur'an"],
+          correct: 0,
+          explain:
+            "Tepat! Itulah kitab Zabur yang diturunkan kepada Nabi Dawud AS.",
+        },
+        {
+          q: "Kitab suci yang diturunkan kepada Nabi Isa AS adalah...",
+          options: ["Taurat", "Zabur", "Injil", "Al-Qur'an"],
+          correct: 2,
+          explain: "Benar! Kitab Injil diturunkan kepada Nabi Isa AS.",
+        },
+        {
+          q: "Kitab suci umat Islam yang diturunkan kepada Nabi Muhammad SAW melalui perantara Malaikat Jibril adalah...",
+          options: ["Taurat", "Injil", "Zabur", "Al-Qur'an"],
+          correct: 3,
+          explain: "Tepat sekali! Itulah Al-Qur'an, kitab suci umat Islam.",
+        },
+        {
+          q: "Kitab suci yang menjadi penyempurna kitab-kitab sebelumnya dan berlaku sepanjang zaman adalah...",
+          options: ["Al-Qur'an", "Taurat", "Zabur", "Injil"],
+          correct: 0,
+          explain:
+            "Betul! Al-Qur'an adalah kitab penutup yang berlaku hingga akhir zaman.",
+        },
+      ];
+
+      let currentQ = 0;
+      let score = 0;
+      let answered = false;
+
+      function startQuiz() {
+        currentQ = 0;
+        score = 0;
+        document.getElementById("quizIntro").classList.add("hidden");
+        document.getElementById("quizResult").classList.add("hidden");
+        document.getElementById("quizPlay").classList.remove("hidden");
+        renderQuestion();
+      }
+
+      function renderQuestion() {
+        answered = false;
+        const item = quizData[currentQ];
+        document.getElementById("qProgressLabel").textContent =
+          `Soal ${currentQ + 1} / ${quizData.length}`;
+        document.getElementById("scoreLabel").textContent = score;
+        document.getElementById("progressBar").style.width =
+          `${(currentQ / quizData.length) * 100}%`;
+        document.getElementById("questionText").textContent = item.q;
+
+        const wrap = document.getElementById("optionsWrap");
+        wrap.innerHTML = "";
+        item.options.forEach((opt, idx) => {
+          const btn = document.createElement("button");
+          btn.textContent = opt;
+          btn.className =
+            "option-btn w-full text-left font-bold text-sm sm:text-base bg-cream hover:bg-zabur-light border-2 border-ink/10 rounded-2xl px-4 py-3 transition-all";
+          btn.onclick = () => selectAnswer(idx, btn);
+          wrap.appendChild(btn);
+        });
+
+        document.getElementById("feedbackText").classList.add("hidden");
+        document.getElementById("nextBtn").classList.add("hidden");
+
+        const card = document.getElementById("questionCard");
+        card.classList.remove("anim-pop");
+        void card.offsetWidth;
+        card.classList.add("anim-pop");
+      }
+
+      function selectAnswer(idx, btnEl) {
+        if (answered) return;
+        answered = true;
+
+        const item = quizData[currentQ];
+        const allBtns = document.querySelectorAll(".option-btn");
+        const feedback = document.getElementById("feedbackText");
+
+        allBtns.forEach((b) => (b.disabled = true));
+
+        if (idx === item.correct) {
+          score++;
+          btnEl.className =
+            "option-btn anim-correct w-full text-left font-bold text-sm sm:text-base bg-injil text-white border-2 border-injil-dark rounded-2xl px-4 py-3";
+          feedback.className =
+            "block mt-4 text-sm font-bold rounded-xl px-4 py-3 bg-injil-light text-injil-dark";
+          feedback.textContent = "✅ Benar! " + item.explain;
+          spawnConfetti(btnEl);
+        } else {
+          btnEl.className =
+            "option-btn anim-shake w-full text-left font-bold text-sm sm:text-base bg-red-400 text-white border-2 border-red-500 rounded-2xl px-4 py-3";
+          allBtns[item.correct].className =
+            "option-btn w-full text-left font-bold text-sm sm:text-base bg-injil text-white border-2 border-injil-dark rounded-2xl px-4 py-3";
+          feedback.className =
+            "block mt-4 text-sm font-bold rounded-xl px-4 py-3 bg-red-100 text-red-600";
+          feedback.textContent = "❌ Belum tepat. " + item.explain;
+        }
+
+        document.getElementById("scoreLabel").textContent = score;
+        document.getElementById("progressBar").style.width =
+          `${((currentQ + 1) / quizData.length) * 100}%`;
+        document.getElementById("nextBtn").classList.remove("hidden");
+        document.getElementById("nextBtn").textContent =
+          currentQ === quizData.length - 1 ? "Lihat Hasil 🏁" : "Lanjut ➜";
+      }
+
+      function spawnConfetti(anchorEl) {
+        const colors = ["#3A6EA5", "#FFC145", "#06A77D", "#1F8A55"];
+        const rect = anchorEl.getBoundingClientRect();
+        for (let i = 0; i < 10; i++) {
+          const piece = document.createElement("div");
+          piece.className = "confetti-piece";
+          piece.style.left = rect.left + Math.random() * rect.width + "px";
+          piece.style.top = rect.top + window.scrollY + "px";
+          piece.style.width = "7px";
+          piece.style.height = "7px";
+          piece.style.borderRadius = "2px";
+          piece.style.background =
+            colors[Math.floor(Math.random() * colors.length)];
+          piece.style.zIndex = 60;
+          document.body.appendChild(piece);
+          setTimeout(() => piece.remove(), 1000);
+        }
+      }
+
+      function nextQuestion() {
+        if (currentQ < quizData.length - 1) {
+          currentQ++;
+          renderQuestion();
+        } else {
+          showResult();
+        }
+      }
+
+      function showResult() {
+        document.getElementById("quizPlay").classList.add("hidden");
+        const resultBox = document.getElementById("quizResult");
+        resultBox.classList.remove("hidden");
+        document.getElementById("finalScore").textContent = score;
+
+        let emoji = "🎉",
+          msg = "";
+        if (score === 5) {
+          emoji = "🏆";
+          msg =
+            "Masya Allah, luar biasa! Kamu benar-benar paham 4 Kitab Allah!";
+        } else if (score >= 3) {
+          emoji = "🎉";
+          msg = "Kerja bagus! Sedikit lagi jadi ahli 4 Kitab Allah!";
+        } else {
+          emoji = "💪";
+          msg =
+            "Yuk kunjungi Ruang Belajar lagi untuk lebih memahami 4 Kitab Allah!";
+        }
+
+        document.getElementById("resultEmoji").textContent = emoji;
+        document.getElementById("resultMessage").textContent = msg;
+
+        const starRow = document.getElementById("starRow");
+        starRow.innerHTML = "";
+        for (let i = 0; i < 5; i++) {
+          const star = document.createElement("span");
+          star.textContent = i < score ? "⭐" : "☆";
+          starRow.appendChild(star);
+        }
+      }
+
+      function resetQuiz() {
+        document.getElementById("quizResult").classList.add("hidden");
+        document.getElementById("quizIntro").classList.remove("hidden");
+      }
+    </script>
+  </body>
+</html>
